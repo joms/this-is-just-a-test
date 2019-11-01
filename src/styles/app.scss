@@ -1,2 +1,11 @@
-@import './reboot';
-@import './components/all'
+@import './import';
+
+body {
+    font-family: Calibri, sans-serif;
+}
+
+main {
+    width: 780px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
