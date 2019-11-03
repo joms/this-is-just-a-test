@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Decisions
+
+### Form state
+
+I considered making the Form component handling the state for all inputs. This would've made it easier to handle simple input fields using just the `name` attribute. It would also make the `onSubmit` event simpler as it would just proved an object of data the consumer could care about. But, it'd also require a different approach to custom inputs like `Dropdown` where the onChange even would have a different flow. Not impossible, but it would alter the data flow I had used up to this point.
+**Conclusion:** Form is stateless, and the `onSubmit` event only exists to tell the form
+state handler that the submit event has occured.
+
 ## Available Scripts
 
 In the project directory, you can run:

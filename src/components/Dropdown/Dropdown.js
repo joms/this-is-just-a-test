@@ -30,7 +30,7 @@ const Dropdown = ({ label, onChange, options, placeholder, value, error, hint })
     }, [value, options]);
 
     // TODO Support arrow key navigation https://github.com/Semantic-Org/Semantic-UI-React/blob/master/src/modules/Dropdown/Dropdown.js#L514
-
+    // TODO Find issue with double click occuring from time to time
     return (
         <>
             <label>{label}</label>

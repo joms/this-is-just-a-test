@@ -6,9 +6,9 @@ import FormInput from './FormInput';
 import FormDropdown from './FormDropdown';
 
 const Form = ({ children, onSubmit }) => {
-    const handleSubmit = (e, ...args) => {
+    const handleSubmit = e => {
         e.preventDefault();
-        onSubmit(e, args);
+        onSubmit();
     };
 
     return <form onSubmit={handleSubmit}>{children}</form>;
