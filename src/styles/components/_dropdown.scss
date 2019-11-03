@@ -85,3 +85,10 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    /* Mobile overrides */
+    .dropdown {
+        width: 100%;
+    }
+}

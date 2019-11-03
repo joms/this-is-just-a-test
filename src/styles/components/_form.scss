@@ -57,3 +57,27 @@ form {
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    /* Mobile overrides */
+    form {
+        .field {
+            &.horizontal {
+                flex-direction: column;
+                .field {
+                    margin-bottom: 2rem;
+                    display: flex;
+                    margin-right: 0;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+
+            input {
+                width: 100%;
+            }
+        }
+    }
+}
