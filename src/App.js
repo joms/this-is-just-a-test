@@ -21,6 +21,7 @@ const errorReducer = (state, action) => {
 
 function App() {
     const [formState, setFormState] = useState({});
+    const [formResult, setFormresult] = useState(null);
     const [errors, dispatchError] = useReducer(errorReducer, {});
 
     const handleFormChange = name => event => {
@@ -37,12 +38,14 @@ function App() {
     };
 
     const validators = {
-        licenseplate: value => {
+        licenseplate: () => {
             let error = '';
-            const val = value || formState['licenseplate'];
+            const val = formState['licenseplate'];
             const re = /[A-Z]{2}\d{5}/;
 
             if (!re.test(val)) {
+                console.log(re);
+                console.log(val);
                 error = 'Registreringsnummeret har feil format';
             }
 
@@ -72,9 +75,9 @@ function App() {
             }
             return error;
         },
-        identity_number: value => {
+        identity_number: () => {
             let error = '';
-            const val = value || formState['identity_number'];
+            const val = formState['identity_number'];
 
             if (val && val.length !== 11) {
                 error = '11 siffer er påkrevd';
@@ -91,9 +94,9 @@ function App() {
             }
             return error;
         },
-        firstname: value => {
+        firstname: () => {
             let error = '';
-            const val = value || formState['firstname'];
+            const val = formState['firstname'];
 
             if (!val) {
                 error = 'Dette feltet er påkrevd';
@@ -106,9 +109,9 @@ function App() {
             }
             return error;
         },
-        surname: value => {
+        surname: () => {
             let error = '';
-            const val = value || formState['surname'];
+            const val = formState['surname'];
 
             if (!val) {
                 error = 'Dette feltet er påkrevd';
@@ -121,9 +124,9 @@ function App() {
             }
             return error;
         },
-        email: value => {
+        email: () => {
             let error = '';
-            const val = value || formState['email'];
+            const val = formState['email'];
             // Simple email regex from https://emailregex.com/
             const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -162,10 +165,24 @@ function App() {
     const getFormValue = (name, fallback = '') => formState[name] || fallback;
 
     const handleSubmit = () => {
+        // Validate all validators before continuing
         const err = Object.values(validators)
             .map(fun => fun())
             .filter(e => !!e);
-        console.log(err);
+
+        if (err.length) {
+            return;
+        }
+
+        // oil price 3rd nov at 22:00 pluss some randomness
+        const basePrice = 56.2 * (Math.random() * 3.14);
+        setFormresult({
+            Ansvar: Math.round(basePrice * 12),
+            Delkasko: Math.round(basePrice * 15),
+            Kasko: Math.round(basePrice * 20),
+            Pluss: Math.round(basePrice * 27),
+        });
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
     };
 
     return (
@@ -176,6 +193,25 @@ function App() {
                 registrert og skal brukes på veien. I tillegg kan du utvide forsikringen avhengig av hvor gammel bilen
                 din er og hvordan du bruker den
             </p>
+            {formResult && (
+                <div id="pricelist">
+                    <img src="/lada.jpg" alt="Lada" />
+                    <h3>Lada Niva 1977</h3>
+                    <table>
+                        <tbody>
+                            {Object.entries(formResult).map(([name, price]) => (
+                                <tr key={name}>
+                                    <td>
+                                        <strong className="type">{name}</strong>
+                                    </td>
+                                    <td>{price},-/mnd</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                    <hr />
+                </div>
+            )}
             <Form onSubmit={handleSubmit}>
                 <Form.Input
                     label="Bilens registreringsnummer"
@@ -283,7 +319,9 @@ function App() {
                 />
                 <Button.Buttons>
                     <Button type="submit">Beregn pris</Button>
-                    <Button invert>Avbryt</Button>
+                    <Button invert onClick={() => setFormState({})}>
+                        Avbryt
+                    </Button>
                 </Button.Buttons>
             </Form>
         </main>
