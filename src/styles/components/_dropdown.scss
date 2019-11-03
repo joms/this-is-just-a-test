@@ -4,7 +4,6 @@
     position: relative;
     transition: width 0.15s ease-in-out;
 
-
     .placeholder {
         color: #7e7e7e;
     }
@@ -72,9 +71,17 @@
     .hint,
     .error {
         white-space: nowrap;
+        display: block;
     }
 
-    .error {
+
+    &.error {
+        width: 100%;
         color: red;
+
+        .placeholder,
+        .value {
+            border-color: red;
+        }
     }
 }
