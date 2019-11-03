@@ -4,18 +4,15 @@ import cx from 'classnames';
 
 const Dropdown = ({ label, onChange, options, placeholder, value, error, hint }) => {
     const [open, setOpen] = useState(false);
+    const [lastOpen, setLastOpen] = useState(true);
 
     const close = () => setOpen(false);
     const show = () => setOpen(true);
+    const toggle = () => Date.now() - lastOpen > 150 && setOpen(!open);
 
+    // add a timer to ensure that 'click' and 'focus' event does not outrun eachother
     useEffect(() => {
-        if (open) {
-            window.addEventListener('click', close);
-        } else {
-            window.removeEventListener('click', close);
-        }
-
-        return () => window.removeEventListener('click', close);
+        setLastOpen(Date.now());
     }, [open]);
 
     const valueText = useMemo(() => {
@@ -30,11 +27,16 @@ const Dropdown = ({ label, onChange, options, placeholder, value, error, hint })
     }, [value, options]);
 
     // TODO Support arrow key navigation https://github.com/Semantic-Org/Semantic-UI-React/blob/master/src/modules/Dropdown/Dropdown.js#L514
-    // TODO Find issue with double click occuring from time to time
     return (
         <>
             <label>{label}</label>
-            <div className={cx('dropdown', { error, open })} onClick={show} onFocus={show} onBlur={close} tabIndex="0">
+            <div
+                className={cx('dropdown', { error, open })}
+                onClick={toggle}
+                onFocus={show}
+                onBlur={close}
+                tabIndex="0"
+            >
                 <div className={cx({ value: valueText }, { placeholder: !valueText })}>{valueText || placeholder}</div>
                 <i className="arrow" />
                 <div className="dropdown-options">
