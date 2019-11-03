@@ -35,6 +35,63 @@ function App() {
                     onChange={handleFormChange('licenseplate')}
                     value={getFormValue('licenseplate')}
                 />
+                <Form.Dropdown
+                    label="Din bonus"
+                    hint="Hos oss får du minst 40% bonus fra dag en"
+                    placeholder="40%"
+                    onChange={handleFormChange('bonus')}
+                    value={getFormValue('bonus')}
+                    options={[
+                        {
+                            text: '0%',
+                            value: 0,
+                        },
+                        {
+                            text: '10%',
+                            value: 10,
+                        },
+                        {
+                            text: '20%',
+                            value: 20,
+                        },
+                        {
+                            text: '30%',
+                            value: 30,
+                        },
+                        {
+                            text: '40%',
+                            value: 40,
+                        },
+                        {
+                            text: '60%',
+                            value: 60,
+                        },
+                        {
+                            text: '70%',
+                            value: 70,
+                        },
+                        {
+                            text: '80% 1 år',
+                            value: 81,
+                        },
+                        {
+                            text: '80% 2 år',
+                            value: 82,
+                        },
+                        {
+                            text: '80% 3 år',
+                            value: 83,
+                        },
+                        {
+                            text: '80% 4 år',
+                            value: 84,
+                        },
+                        {
+                            text: '80% 5 år',
+                            value: 85,
+                        },
+                    ]}
+                />
                 <Form.Input
                     label="Fødselsnummer"
                     placeholder="11 siffer"

@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App> matches snapshot 1`] = `
+<Fragment>
+  <label>
+    Hello, Dropdown!
+  </label>
+  <div
+    className="dropdown"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    tabIndex="0"
+  >
+    <div
+      className="placeholder"
+    />
+    <i
+      className="arrow"
+    />
+    <div
+      className="dropdown-options"
+    >
+      <div
+        className="dropdown-option"
+        key="3.14PI"
+        onClick={[Function]}
+      >
+        PI
+      </div>
+      <div
+        className="dropdown-option"
+        key="6.28Tau"
+        onClick={[Function]}
+      >
+        Tau
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Field from './Field';
 import FormInput from './FormInput';
+import FormDropdown from './FormDropdown';
 
 const Form = ({ children, onSubmit }) => {
     const handleSubmit = (e, ...args) => {
@@ -24,5 +25,6 @@ Form.propTypes = {
 
 Form.Field = Field;
 Form.Input = FormInput;
+Form.Dropdown = FormDropdown;
 
 export default Form;
