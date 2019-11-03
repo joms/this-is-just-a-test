@@ -129,7 +129,7 @@ function App() {
             const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
             if (!re.test(val)) {
-                error = 'Epost adressen har feil format';
+                error = 'Skriv inn en gyldig epost adresse';
             }
 
             if (!val) {
