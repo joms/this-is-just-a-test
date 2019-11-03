@@ -39,6 +39,12 @@ As the size of this application is set, I felt for going with doing the UI libra
 
 In retrospect I think I should've gone with using `react-final-form` which is a library for creating and controlling forms. It provides a nice solution for state management, whilst opening for things like good validation and error handling, which is the part I am least happy about in my own solution.
 
+## Accessibility
+
+I would want to spend more time on accessibility to provide better context for screen readers, and ensure that components like the `Dropdown` works properly with a screen reader and arrow key navigation.
+
+---
+
 ## Available Scripts
 
 In the project directory, you can run:
