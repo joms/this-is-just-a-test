@@ -1,3 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button> matches snapshot 1`] = `ShallowWrapper {}`;
+exports[`<Button> matches snapshot 1`] = `
+<div
+  className="buttons"
+>
+  <Button
+    invert={false}
+    onClick={[Function]}
+    rest={Object {}}
+  >
+    Yolo
+  </Button>
+  <Button
+    invert={false}
+    onClick={[Function]}
+    rest={Object {}}
+  >
+    Swag
+  </Button>
+</div>
+`;
