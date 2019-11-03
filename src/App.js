@@ -44,8 +44,6 @@ function App() {
             const re = /[A-Z]{2}\d{5}/;
 
             if (!re.test(val)) {
-                console.log(re);
-                console.log(val);
                 error = 'Registreringsnummeret har feil format';
             }
 
