@@ -1,0 +1,59 @@
+form {
+    margin-top: 3rem;
+
+    .field {
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+
+        &.horizontal {
+            flex-direction: row;
+
+            .field {
+                margin-right: 3rem;
+                flex: 1;
+                margin-bottom: 0;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        input {
+            display: inline-block;
+            border: none;
+            border-bottom: 2px solid black;
+            width: 13rem;
+            transition: width 0.15s ease-in-out;
+            font-weight: 600;
+            padding-left: 0.25rem;
+
+            &::placeholder {
+                font-weight: initial;
+            }
+
+            &:focus {
+                width: 100%;
+                outline: none;
+            }
+
+            &.error {
+                border-bottom: 2px solid red;
+                width: 100%;
+            }
+        }
+
+        span {
+            &.error {
+                color: red;
+                white-space: nowrap;
+            }
+
+            &.hint {
+                font-size: 0.75rem;
+                white-space: nowrap;
+            }
+        }
+    }
+}

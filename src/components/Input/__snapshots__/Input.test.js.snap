@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input> matches snapshot 1`] = `
+<Fragment>
+  <label>
+    Hello, input
+  </label>
+  <input
+    className="error"
+    onChange={[MockFunction]}
+    placeholder=""
+    value=""
+  />
+  <span
+    className="error"
+  >
+    This field is required
+  </span>
+  <span
+    className="hint"
+  >
+    this is a hint
+  </span>
+</Fragment>
+`;
