@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Plan of attack
+
+The plan was to first make the UI, because this is where I would use the bigger part of the time. This being creating the basic components, and provide styling. After that I'd start the internal logic of the form and tie it all together.
+
 ## Decisions
 
 ### Form state
@@ -7,6 +11,33 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 I considered making the Form component handling the state for all inputs. This would've made it easier to handle simple input fields using just the `name` attribute. It would also make the `onSubmit` event simpler as it would just proved an object of data the consumer could care about. But, it'd also require a different approach to custom inputs like `Dropdown` where the onChange even would have a different flow. Not impossible, but it would alter the data flow I had used up to this point.
 **Conclusion:** Form is stateless, and the `onSubmit` event only exists to tell the form
 state handler that the submit event has occured.
+
+## Libraries
+
+### react-scripts
+
+Create-react-app comes with what to me is a ton of benefits; One does no longer have to care about updating the single components of a React setup. For instance react-dom version, webpack, jest and other tools. It also provides a sensible webpack configuration with a bunch of smart functionality and well tested configurations. It also provides a default jest version that's tested with the current React version.
+
+### node-sass
+
+SCSS rocks! And to add support for it with react-scripts, the only thing one has to do is installing this package.
+
+### classnames
+
+A neat way of doing conditional classnames for components.
+
+### reboot.scss
+
+Reboot is the CSS reset from Bootstrap which provides a nice way of ensuring the baseline for your DOM looks the same across all browsers.
+
+### Why not use a framework like bootstrap you say?
+
+As the size of this application is set, I felt for going with doing the UI library myself. It's not very complicated, and does not set requirements for e.g. complex grid behaviour. I considered both Bootstrap, Semantic UI and Bulma, but concluded I could handle this myself.
+
+
+### react-final-form
+
+In retrospect I think I should've gone with using `react-final-form` which is a library for creating and controlling forms. It provides a nice solution for state management, whilst opening for things like good validation and error handling, which is the part I am least happy about in my own solution.
 
 ## Available Scripts
 
