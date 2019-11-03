@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormDropdown> matches snapshot 1`] = `
+<Field
+  horizontal={false}
+>
+  <Dropdown
+    error=""
+    hint=""
+    label="Hello, Dropdown!"
+    onChange={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "text": "PI",
+          "value": 3.14,
+        },
+        Object {
+          "text": "Tau",
+          "value": 6.28,
+        },
+      ]
+    }
+    placeholder=""
+    value=""
+  />
+</Field>
+`;

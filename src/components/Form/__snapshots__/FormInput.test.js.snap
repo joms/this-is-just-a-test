@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input> matches snapshot 1`] = `
+<Field
+  horizontal={false}
+>
+  <Input
+    error="This field is required"
+    hint="this is a hint"
+    label="Hello, input"
+    onChange={[MockFunction]}
+    placeholder=""
+    value=""
+  />
+</Field>
+`;
