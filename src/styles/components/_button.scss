@@ -24,7 +24,7 @@ button.button {
         border: 1px solid $btn-text-color-invert;
 
         &:hover {
-            background-color: darken($btn-bg-color-invert, 10%);
+            background-color: darken($btn-bg-color-invert, 7%);
         }
     }
 }
