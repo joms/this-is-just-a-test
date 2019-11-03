@@ -37,6 +37,7 @@ function App() {
         });
     };
 
+    // This should've used a generator function
     const validators = {
         licenseplate: () => {
             let error = '';
